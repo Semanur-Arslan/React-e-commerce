@@ -1,29 +1,25 @@
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from './pages/Auth/Home';
+import Signin from './pages/Auth/Signin';
+import Signup from './pages/Auth/Signup';
 
 
 function App() {
   return (
     <Router>
       <div>
-      <Navbar />
-        {/* <Switch>
-          <Route path="/" component={Home} />
-        
-        </Switch> */}
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          {/* <Route path="*" element={<NoPage />} /> */}
+        </Routes>
       </div>
     </Router>
   );
 }
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
 
 export default App;
