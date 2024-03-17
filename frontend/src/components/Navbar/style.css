@@ -1,0 +1,27 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--light-gray);
+  padding: 12px;
+}
+
+.left-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  margin-left: 12px;
+}
+
+.nav-menu li {
+  float: left;
+  margin:auto 4px;
+}
+
+.right-nav button{
+   margin: auto 4px;
+}
+
+
