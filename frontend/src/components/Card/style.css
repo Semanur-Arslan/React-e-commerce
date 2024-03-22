@@ -1,0 +1,13 @@
+.product-image {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .main-image {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover .main-image {
+    transform: scale(1.1);
+  }
+  

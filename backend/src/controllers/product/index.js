@@ -71,7 +71,7 @@ const Delete = async (req, res, next) => {
 const limit = 12;
 const GetList = async (req, res, next) => {
 	let { page } = req.query;
-
+      
 	if (page < 1) {
 		page = 1;
 	}
@@ -83,7 +83,6 @@ const GetList = async (req, res, next) => {
 			.sort({ createdAt: -1 })
 			.skip(skip)
 			.limit(limit);
-
 		res.json(products);
 	} catch (e) {
 		next(e);

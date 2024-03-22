@@ -60,6 +60,7 @@ const Login = async (req, res, next) => {
 		return next(Boom.badRequest(error.details[0].message));
 	}
 
+	
 	try {
 		const user = await User.findOne({ email: input.email });
 
@@ -67,10 +68,13 @@ const Login = async (req, res, next) => {
 			throw Boom.notFound("The email address was not found.");
 		}
 
+
 		const isMatched = await user.isValidPass(input.password);
 		if (!isMatched) {
 			throw Boom.unauthorized("email or password not correct");
 		}
+
+		
 
 		const accessToken = await signAccessToken({
 			user_id: user._id,
