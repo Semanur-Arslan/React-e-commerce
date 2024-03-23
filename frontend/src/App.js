@@ -6,6 +6,7 @@ import ProductsDetail from './pages/ProductDetail';
 import Signin from './pages/Auth/Signin';
 import Signup from './pages/Auth/Signup';
 import Profile from './pages/Profile';
+import ProtectedRoute from './pages/ProtectedRoute';
 
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
           <Route path="/:product_id" element={<ProductsDetail />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route  element={<ProtectedRoute />}> 
+          <Route element={<Profile/>} path="/profile"/>
+          </Route>
           {/* <Route path="*" element={<NoPage />} /> */}
         </Routes>
       </div>
