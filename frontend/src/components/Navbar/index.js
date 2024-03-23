@@ -8,6 +8,11 @@ function Navbar() {
   const { loggedIn } = useAuth();
   const {basketItems} = useBasket();
 
+  let basketItemCount = 0;
+  for (const itemId in basketItems) {
+    basketItemCount += basketItems[itemId].quantity;
+  }
+
   return (
     <nav>
       <div className="left-nav">
@@ -32,13 +37,13 @@ function Navbar() {
             </button>
           </Link>
 
-          {basketItems.length > 0 && ( 
+          {basketItemCount > 0 && ( 
               <Link to="/basket">
                 <button
                   type="button"
                   className="btn btn-neutral rounded-lg text-slate-50"
                 >
-                  Basket ({basketItems.length})
+                  Basket ({basketItemCount})
                 </button>
               </Link>
             )}
