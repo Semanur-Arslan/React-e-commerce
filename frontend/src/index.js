@@ -10,6 +10,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // context
 import { AuthProvider } from "./contexts/AuthContext";
+import { BasketProvider } from "./contexts/BasketContexts";
 
 const queryClient = new QueryClient({
   defaultOption: {
@@ -24,7 +25,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
-      <App />
+      <BasketProvider>
+        <App />
+      </BasketProvider>
     </AuthProvider>
     <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>

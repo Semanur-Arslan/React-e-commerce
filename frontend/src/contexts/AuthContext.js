@@ -1,5 +1,5 @@
 import {useState, createContext, useEffect, useContext } from "react";
-import { fetchMe } from "../Api";
+import { fetchLogout, fetchMe } from "../Api";
 
 
 const AuthContext = createContext();
@@ -28,12 +28,25 @@ const AuthProvider = ({children}) => {
 
     localStorage.setItem('access-token', data.accessToken)
     localStorage.setItem('refresh-token', data.refreshToken)
+    
    };
+
+   const logout = async() => {
+    setLoggedIn(false);
+    setUser(null);
+
+    await fetchLogout();
+
+    localStorage.removeItem("access-token")
+    localStorage.removeItem("refresh-token")
+
+   }
 
    const values = {
     loggedIn,
     user,
     login,
+    logout,
    };
 
    if(loading) {

@@ -33,7 +33,7 @@ function Products() {
 
   if (error) return "An error has occurred: " + error.message;
 
-  console.log(data)
+
   return (
     <>
     <div className="container mx-auto p-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-10  justify-items-center">

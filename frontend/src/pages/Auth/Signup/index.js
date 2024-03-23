@@ -3,10 +3,13 @@ import { useFormik } from "formik";
 import validationShema from "./validations";
 import { fetchRegister } from "../../../Api";
 import { useAuth } from "../../../contexts/AuthContext";
+import { Navigate } from "react-router-dom";
+import { useState } from "react";
 
 function Signup() {
 
   const {login} = useAuth();
+  const [redirectToProduct, setRedirectToProduct] = useState(false); 
 
   const formik = useFormik({
     initialValues: {
@@ -17,20 +20,26 @@ function Signup() {
     onSubmit: async (values, bag) => {
       try {
         const registerResponse = await fetchRegister(values);
-        console.log(registerResponse);
-        login(registerResponse)
+
+        login(registerResponse);
+        setRedirectToProduct(true); 
+
       } catch (e) {
         bag.setErrors({ general: e.response.data.message });
       }
     },
   });
 
+  if (redirectToProduct) {
+    return <Navigate to="/profile" />;
+  }
+
   return (
     <div className="flex justify-center pt-8  h-screen bg-base-200">
     <div className="container mx-auto max-w-md">
     <div className="w-full">
-      <h3 className="mb-2 text-center">Merhaba</h3>
-      <h5  className="mb-6 text-center">Üye Olun, Alışverişin Keyfini Çıkarın!</h5>
+      <h3 className="mb-2 text-center">Hello !</h3>
+      <h5  className="mb-6 text-center">Become a Member, Enjoy Shopping!</h5>
 
 
 
@@ -90,13 +99,6 @@ function Signup() {
             isInvalid={formik.touched.password && formik.errors.password}
           />
         </div>
-
-        {/* <div className="flex items-start mb-5">
-    <div className="flex items-center h-5">
-      <input id="terms" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
-    </div>
-    <label htmlFor="terms" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a></label>
-  </div> */}
         <button
           type="submit"
           className="w-full text-white bg-private1 hover:bg-private1Hover focus:ring-4 focus:outline-none focus:ring-bg-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center  "

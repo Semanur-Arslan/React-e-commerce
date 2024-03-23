@@ -5,8 +5,10 @@ import { fetchProductDetail } from "../../Api";
 
 import DetailCard from "../../components/DetailCard";
 
+
 function ProductDetail() {
   const { product_id } = useParams();
+
 
   const { isPending, error, data } = useQuery({
     queryKey: ["productData", product_id],
