@@ -7,6 +7,8 @@ import Signin from './pages/Auth/Signin';
 import Signup from './pages/Auth/Signup';
 import Profile from './pages/Profile';
 import ProtectedRoute from './pages/ProtectedRoute';
+import Basket from './pages/Basket';
+import NoPage from './pages/NoPage';
 
 
 function App() {
@@ -22,7 +24,8 @@ function App() {
           <Route  element={<ProtectedRoute />}> 
           <Route element={<Profile/>} path="/profile"/>
           </Route>
-          {/* <Route path="*" element={<NoPage />} /> */}
+          <Route path="/basket" element={<Basket />} />
+          <Route path="*" element={<NoPage />} />
         </Routes>
       </div>
     </Router>
