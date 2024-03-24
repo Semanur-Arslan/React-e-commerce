@@ -9,6 +9,8 @@ import Profile from './pages/Profile';
 import ProtectedRoute from './pages/ProtectedRoute';
 import Basket from './pages/Basket';
 import NoPage from './pages/NoPage';
+import Home from './pages/Home';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -17,7 +19,8 @@ function App() {
       <div>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Products />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/product" element={<Products />} />
           <Route path="/:product_id" element={<ProductsDetail />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
@@ -27,6 +30,7 @@ function App() {
           <Route path="/basket" element={<Basket />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
