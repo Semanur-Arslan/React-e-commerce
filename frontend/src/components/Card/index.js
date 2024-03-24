@@ -28,7 +28,7 @@ function Card(props) {
 
   return (
     <div className="card card-compact shadow-md rounded">
-      <Link to={item._id}>
+      <Link to={`/${item._id}`}>
         <figure className="product-image rounded-t">
           <img
             src={item.photos[0]}
@@ -39,7 +39,7 @@ function Card(props) {
         </figure>
       </Link>
       <div className="card-body">
-        <Link to={item._id}>
+        <Link to={`/${item._id}`}>
           <h2 className="card-title text-sm">{item.title}</h2>
         </Link>
         <div className="grid grid-cols-2 content-center flex items-center">

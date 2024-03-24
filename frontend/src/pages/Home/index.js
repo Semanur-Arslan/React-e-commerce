@@ -54,16 +54,16 @@ function Home() {
       >
         <div
           id="slide1"
-          className="carousel-item absolute top-0 left-0 w-full h-full bg-cover bg-center"
+          className="carousel-item absolute top-0 left-0 w-full h-full bg-cover bg-center justify-center"
           style={{ backgroundImage: `url(${bgImage1})` }}
         >
-          <div className="absolute inset-0 flex justify-center items-center ">
-            <div className="text-white text-center  bg-white bg-opacity-50 p-10 rounded flex flex-col items-center">
+          <div className="absolute inset-0 flex justify-center items-center w-3/4">
+            <div className="text-white text-center  bg-white bg-opacity-50 p-3 md:p-10 rounded flex flex-col items-center">
               <img src={nature} alt="nature" />
-              <h2 className="text-3xl font-medium mb-4 text-accent">
+              <h2 className=" text-xl md:text-3xl font-bold md:font-medium mb-4 text-accent">
                 The nature candle
               </h2>
-              <p className="text-lg text-accent">
+              <p className="text-sm md:text-lg text-accent">
                 All handmade with natural soy wax, Candleaf is a companion for
                 all your pleasure moments{" "}
               </p>
@@ -80,13 +80,13 @@ function Home() {
           className="carousel-item absolute top-0 left-0 w-full h-full bg-cover bg-center hidden"
           style={{ backgroundImage: `url(${bgImage2})` }}
         >
-          <div className="absolute inset-0 flex justify-center items-center">
-            <div className="text-white text-center bg-white bg-opacity-50 p-10 rounded flex flex-col items-center">
+          <div className="absolute inset-0 flex justify-center items-center w-3/4">
+            <div className="text-white text-center bg-white bg-opacity-50 p-3 md:p-10 rounded flex flex-col items-center">
               <img src={glowing} alt="glowing" />
-              <h2 className="text-3xl font-medium mb-4 text-accent">
+              <h2 className="text-xl md:text-3xl font-bold md:font-medium mb-4 text-accent">
                 The stylish candle
               </h2>
-              <p className="text-lg text-accent">
+              <p className="text-sm md:text-lg text-accent">
                 It accompanies every moment with its eye-catching and stylish
                 designs.
               </p>

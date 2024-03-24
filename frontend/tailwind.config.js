@@ -27,9 +27,7 @@ module.exports = {
 
           error: "#dc2626",
 
-       
 
-     
           extend: {
             colors: {
               primary: "#56B280",

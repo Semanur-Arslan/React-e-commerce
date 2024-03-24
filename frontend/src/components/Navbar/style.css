@@ -2,29 +2,19 @@
   border-bottom: 1px solid var(--light-gray);
 } 
 
-.dropdown:hover .my-hover svg,
-.dropdown:focus .my-hover svg,
-.dropdown:hover .my-hover span,
-.dropdown:focus .my-hover span {
+.my-hover-div:hover .my-hover svg,
+.my-hover-div:focus .my-hover svg,
+.my-hover-div:hover .my-hover span,
+.my-hover-div:focus .my-hover span {
   color: #56B280; 
 }
 
-/* .left-nav {
-  display: flex;
-  align-items: center;
+.my-basket:hover .my-basket-piece svg,
+.my-basket:focus .my-basket-piece svg,
+.my-basket:hover .my-basket-piece span,
+.my-basket:focus .my-basket-piece span {
+  color: #56B280; 
 }
 
-.nav-menu {
-  margin-left: 12px;
-}
-
-.nav-menu li {
-  float: left;
-  margin:auto 4px;
-}
-
-.right-nav button{
-   margin: auto 4px;
-} */
 
 

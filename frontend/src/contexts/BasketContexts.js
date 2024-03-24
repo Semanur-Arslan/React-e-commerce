@@ -15,9 +15,9 @@ const BasketProvider = ({ children }) => {
         setBasketItems((prev) => {
             const updatedItems = { ...prev };
             if (updatedItems[data._id]) {
-                updatedItems[data._id].quantity += 1; // Ürün adetini arttır
+                updatedItems[data._id].quantity += 1; 
             } else {
-                updatedItems[data._id] = { ...data, quantity: 1 }; // Yeni ürünü ekle, adet 1 olarak başla
+                updatedItems[data._id] = { ...data, quantity: 1 }; 
             }
             return updatedItems;
         });
@@ -27,9 +27,9 @@ const BasketProvider = ({ children }) => {
         setBasketItems((prev) => {
             const updatedItems = { ...prev };
             if (updatedItems[data._id] && updatedItems[data._id].quantity > 1) {
-                updatedItems[data._id].quantity -= 1; // Ürün adetini azalt
+                updatedItems[data._id].quantity -= 1;
             } else {
-                delete updatedItems[data._id]; // Ürünü sepette bulunan tüm bilgileriyle birlikte sil
+                delete updatedItems[data._id]; 
             }
             return updatedItems;
         });
