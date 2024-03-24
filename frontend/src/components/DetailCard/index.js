@@ -27,7 +27,7 @@ const quantity = product ? product.quantity : 0;
   };
 
   return (
-    <div className="card card-side bg-base-100 shadow-xl grid lg:grid-cols-2 grid sm:grid-cols-1 gap-0 ">
+    <div className="card card-side  shadow-xl grid lg:grid-cols-2 grid sm:grid-cols-1 gap-0 ">
       <div className="grid justify-center items-center p-4">
         <figure className="product-image-detail m-4 rounded-md">
           <img src={selectedImage} alt={detailData.title} loading="lazy" className="detail-image " />

@@ -1,25 +1,47 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [  "./src/**/*.{js,jsx,ts,tsx}",],
-  theme: {
+  variants: {
     extend: {
-      colors: {
-        private1 : "#C148AC",
-        private1Hover : "#b441a1"
-      },
+      textColor: ['responsive', 'hover', 'focus', 'active'],
     },
   },
-  plugins: [require("daisyui")],
-
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  
   daisyui: {
-    themes: ["pastel"],
-    darkTheme: "dark", // name of one of the included themes for dark mode
-    base: true, // applies background color and foreground color for root element by default
-    styled: true, // include daisyUI colors and design decisions for all components
-    utils: true, // adds responsive and modifier utility classes
-    prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
-    logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
-    themeRoot: ":root", // The element that receives theme color CSS variables
-  },
-}
+    themes: [
+      {
+        mytheme: {
+          primary: "#56B280",
 
+          secondary: "#d6d3d1",
+
+          accent: "#272727",
+
+          neutral: "#D9EDBF",
+
+          info: "#f3f4f6",
+
+          success: "#16a34a",
+
+          warning: "#F9E897",
+
+          error: "#dc2626",
+
+       
+
+     
+          extend: {
+            colors: {
+              primary: "#56B280",
+              info: "#f3f4f6",
+            },
+          },
+        },
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
+  
+
+
+};

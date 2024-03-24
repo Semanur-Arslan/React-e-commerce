@@ -8,14 +8,14 @@ function Card(props) {
   const { item } = props;
   const { addToBasket, removeFromBasket, basketItems } = useBasket();
 
-const product = basketItems[item._id];
-const quantity = product ? product.quantity : 0; 
+  const product = basketItems[item._id];
+  const quantity = product ? product.quantity : 0;
 
   const date = new Date(item.createdAt);
   const formattedDate = date.toLocaleDateString("tr-TR");
 
   const handleAddToBasket = () => {
-    addToBasket(item); 
+    addToBasket(item);
   };
 
   const handleIncreaseQuantity = () => {
@@ -27,9 +27,9 @@ const quantity = product ? product.quantity : 0;
   };
 
   return (
-    <div className="card card-compact bg-base-100 shadow-xl">
+    <div className="card card-compact shadow-md rounded">
       <Link to={item._id}>
-        <figure className="product-image">
+        <figure className="product-image rounded-t">
           <img
             src={item.photos[0]}
             alt={item.title}
@@ -40,15 +40,15 @@ const quantity = product ? product.quantity : 0;
       </Link>
       <div className="card-body">
         <Link to={item._id}>
-          <h4 className="text-sm text-slate-300">{formattedDate}</h4>
-          <h2 className="card-title">{item.title}</h2>
+          <h2 className="card-title text-sm">{item.title}</h2>
         </Link>
-        <div className="grid grid-cols-2 content-center">
-          <p className="py-4">{item.price} tl</p>
+        <div className="grid grid-cols-2 content-center flex items-center">
+          <p className="py-4 text-md">{item.price} $</p>
           {quantity === 0 ? (
-            <button className="btn btn-primary" onClick={handleAddToBasket}>Sepete Ekle</button>
-          )
-: (
+            <button className="btn btn-outline btn-primary btn-xs hover:text-white " onClick={handleAddToBasket}>
+              Sepete Ekle
+            </button>
+          ) : (
             <div className="quantity-controls">
               <button onClick={handleDecreaseQuantity}>-</button>
               <span>{quantity}</span>
