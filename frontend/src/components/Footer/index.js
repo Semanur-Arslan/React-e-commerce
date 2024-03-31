@@ -7,7 +7,7 @@ function Footer() {
   return (
     <>
     <footer className="bg-accent mt-12 py-12 px-12">
-      <div className="grid grid-cols-2 gap-4 items-center my-border-line pb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center my-border-line py-6">
         <div className="flex flex-col justify-start ">
           <div className="grid grid-cols-2 items-center">
             <Link to="/" className="flex justify-start items-center">
@@ -19,9 +19,9 @@ function Footer() {
             Your natural candle made for your home and for your wellness.
           </p>
         </div>
-        <div className="flex justify-end ">
+        <div className="flex md:justify-end ">
           <div className="pr-12">
-            <ul className="text-white  text-md mt-4 mb-8">
+            <ul className="text-white  text-md my-4">
               <li className="py-2 hover:text-primary">
                 <Link to={"/product"}>Product</Link>
               </li>
@@ -32,11 +32,11 @@ function Footer() {
               <li className="py-2 hover:text-primary">
                 <Link to={"/contact-us"}>Contact Us</Link>
               </li>
-              <li className="py-2 "></li>
+           
             </ul>
           </div>
           <div>
-            <ul className="text-white  text-md mt-4 mb-8">
+            <ul className="text-white  text-md my-4">
 
               <li className="py-2 hover:text-primary">
                 <Link to={"/"}>Privacy Policies</Link>

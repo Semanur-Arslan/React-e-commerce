@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../Navbar/style.css";
 import { useAuth } from "../../contexts/AuthContext";
@@ -11,27 +11,36 @@ import { RxHamburgerMenu } from "react-icons/rx";
 function Navbar() {
   const { loggedIn } = useAuth();
   const { basketItems } = useBasket();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef();
 
   let basketItemCount = 0;
   for (const itemId in basketItems) {
     basketItemCount += basketItems[itemId].quantity;
   }
 
-  document.getElementById("hamburger").onclick = function toggleMenu() {
-    const navToggle = document.getElementsByClassName("my-toggle");
-    for (let i = 0; i < navToggle.length; i++) {
-      navToggle.item(i).classList.toggle("hidden");
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
     }
-  };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
 
   return (
     <nav className="grid grid-cols-3 gap-4 items-center py-2 md:px-8 px-4">
-      <div class="flex md:hidden">
-        <button id="hamburger">
-          <RxHamburgerMenu />
+      <div className="flex md:hidden">
+        <button id="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <span>X</span> : <RxHamburgerMenu />}
         </button>
       </div>
-      <div className=" md:flex justify-start ">
+      <div className="md:flex justify-start">
         <div className="grid grid-cols-2 items-center">
           <Link to="/" className="flex justify-start items-center">
             <img
@@ -46,23 +55,23 @@ function Navbar() {
           </Link>
         </div>
       </div>
-      <div className="md:flex md:justify-center order-4 md:order-2  my-toggle  hidden w-full">
-        <ul className="md:grid grid-cols-3 text-accent text-sm justify-center items-center">
-          <li className="md:flex justify-center px-4">
-            <Link to="/product">Products</Link>
+      <div ref={menuRef} className={`md:flex md:justify-center order-4 md:order-2 my-toggle md:transition-none transform transition-transform ease-in-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'}  md:translate-x-2  md:relative md:top-0 left-0  absolute top-9 z-10 bg-base-100 md:px-0 px-4 py-3 w-1/2 md:w-auto h-screen md:h-auto`}>
+        <ul className="md:grid grid-cols-3 text-accent text-sm justify-center items-center ">
+          <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
+            <Link to="/product"  onClick={() => setMenuOpen(false)}>Products</Link>
           </li>
-          <li className="md:flex justify-center px-4">
-            <Link to="/product">About</Link>
+          <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
+            <Link to="/product"  onClick={() => setMenuOpen(false)}>About</Link>
           </li>
-          <li className="md:flex justify-center px-4">
-            <Link to="/product">Contact Us</Link>
+          <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
+            <Link to="/product"  onClick={() => setMenuOpen(false)}>Contact Us</Link>
           </li>
         </ul>
       </div>
       <div className="flex justify-end order-3 ">
         {loggedIn && loggedIn ? (
           <>
-            <div className="my-hover-div flex items-center">
+            <div className="my-hover-div flex items-center ">
               <Link to="/profile">
                 <div
                   tabIndex={0}
