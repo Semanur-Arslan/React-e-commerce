@@ -22,7 +22,7 @@ function ProductDetail() {
   const  detailData = data
 
   return (
-    <div className="detail-container p-12">
+    <div className="detail-container md:p-12 ">
      <DetailCard detailData= {detailData}/>
     </div>
   );

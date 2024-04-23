@@ -42,16 +42,16 @@ function Card(props) {
         <Link to={`/${item._id}`}>
           <h2 className="card-title text-sm">{item.title}</h2>
         </Link>
-        <div className="grid grid-cols-2 content-center flex items-center">
+        <div className="grid grid-cols-2  content-center flex items-center">
           <p className="py-4 text-md">{item.price} $</p>
           {quantity === 0 ? (
-            <button className="btn btn-outline btn-primary btn-xs hover:text-white " onClick={handleAddToBasket}>
-              Sepete Ekle
+            <button className="btn btn-outline btn-primary btn-sm hover:text-white " onClick={handleAddToBasket}>
+               Add to cart
             </button>
           ) : (
-            <div className="quantity-controls">
+            <div className="grid grid-cols-3  border border-primary rounded-md text-primary ml-auto w-1/2">
               <button onClick={handleDecreaseQuantity}>-</button>
-              <span>{quantity}</span>
+              <span className="text-center text-base">{quantity}</span>
               <button onClick={handleIncreaseQuantity}>+</button>
             </div>
           )}
