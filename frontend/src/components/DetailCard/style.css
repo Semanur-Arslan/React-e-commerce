@@ -1,7 +1,9 @@
+
+
 .product-image-detail {
     position: relative;
     overflow: hidden;
-    width: 500px;
+    max-width: 500px;
     height: 350px;
     border: 1px solid var(--light-gray);
 

@@ -27,7 +27,7 @@ function DetailCard(props) {
   };
 
   return (
-    <div className="card card-side  shadow-xl grid lg:grid-cols-2 grid sm:grid-cols-1 gap-0 ">
+    <div className="card card-side shadow-xl grid lg:grid-cols-2 grid sm:grid-cols-1 gap-0 ">
       <div className="grid justify-center items-center p-4">
         <figure className="product-image-detail m-4 rounded-md">
           <img
