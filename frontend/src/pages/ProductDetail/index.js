@@ -15,7 +15,7 @@ function ProductDetail() {
     queryFn: () => fetchProductDetail(product_id),
   });
 
-  if (isPending) return "Loading...";
+  if (isPending) return <div>Loading...</div>;
 
   if (error) return "An error has occurred: " + error.message;
 

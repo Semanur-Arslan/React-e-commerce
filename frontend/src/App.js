@@ -11,6 +11,11 @@ import Basket from './pages/Basket';
 import NoPage from './pages/NoPage';
 import Home from './pages/Home';
 import Footer from './components/Footer';
+import ProtectedRouteAdmin from './pages/Admin/ProtectedRouteAdmin';
+import Admin from './pages/Admin';
+import HomeAdmin from './pages/Admin/HomeAdmin';
+import ProductsAdmin from './pages/Admin/ProductsAdmin';
+import OrdersAdmin from './pages/Admin/OrdersAdmin';
 
 
 function App() {
@@ -26,6 +31,11 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route  element={<ProtectedRoute />}> 
           <Route element={<Profile/>} path="/profile"/>
+          </Route>
+          <Route path="/admin" element={<ProtectedRouteAdmin />}> 
+              <Route path="/admin" element={<HomeAdmin />} />
+              <Route path="products" element={<ProductsAdmin />} />
+              <Route path="orders" element={<OrdersAdmin />} />
           </Route>
           <Route path="/basket" element={<Basket />} />
           <Route path="*" element={<NoPage />} />

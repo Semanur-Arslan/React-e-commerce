@@ -62,7 +62,7 @@ function DetailCard(props) {
         <h2 className="card-title">{detailData.title}</h2>
         <p>{detailData.description}</p>
         <div className="grid grid-cols-2 content-center">
-          <p className="py-4">{detailData.price} tl</p>
+          <p className="py-4">{detailData.price} $</p>
           {quantity === 0 ? (
             <button className="btn btn-primary" onClick={handleAddToBasket}>
               {" "}

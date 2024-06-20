@@ -1,6 +1,5 @@
 import axios from "axios";
 
-//axios.interceptors ile giriş yapmış kullanıcıların isteklerine otomatik olarak kimlik doğrulama bilgileri ekliyoruz.
 axios.interceptors.request.use(
   function (config) {
     const { origin } = new URL(config.url);
@@ -65,4 +64,21 @@ export const fetchLogout = async() => {
     }
    );
    return data;
+}
+
+
+export const postOrder = async (input) => {
+  const { data } = await axios.post(
+    `${process.env.REACT_APP_BASE_URL}/order`,
+    input
+  );
+  return data;
+};
+
+
+export const fetchOrders = async() => {
+  const {data} = await axios.get(
+    `${process.env.REACT_APP_BASE_URL}/order`,
+  );
+  return data
 }
