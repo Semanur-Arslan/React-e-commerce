@@ -35,11 +35,15 @@ const BasketProvider = ({ children }) => {
         });
     };
 
+
+    const emptyBasket = () => setBasketItems([])
+
     const values = {
         basketItems,
         setBasketItems,
         addToBasket,
-        removeFromBasket
+        removeFromBasket,
+        emptyBasket
     };
 
     return (

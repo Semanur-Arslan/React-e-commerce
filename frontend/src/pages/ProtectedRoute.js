@@ -4,10 +4,12 @@ import { useAuth } from '../contexts/AuthContext';
 import Profile from './Profile';
 
 function ProtectedRoute() {
-  const { loggedIn } = useAuth();
+  const { loggedIn, user } = useAuth();
 
 
-  return loggedIn ? <Profile /> : <Navigate to="/signin" replace />;
+  return (
+    loggedIn ? <Profile /> : <Navigate to="/signin" replace />
+  )
 }
 
 export default ProtectedRoute;

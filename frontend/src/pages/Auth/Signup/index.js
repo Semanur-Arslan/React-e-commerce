@@ -5,9 +5,11 @@ import { fetchRegister } from "../../../Api";
 import { useAuth } from "../../../contexts/AuthContext";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
 
+  const navigate = useNavigate();
   const {login} = useAuth();
   const [redirectToProduct, setRedirectToProduct] = useState(false); 
 
@@ -101,11 +103,15 @@ function Signup() {
         </div>
         <button
           type="submit"
-          className="w-full text-white bg-private1 hover:bg-private1Hover focus:ring-4 focus:outline-none focus:ring-bg-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center  "
+          className="w-full text-white btn btn-primary  "
         >
           Sing Up
         </button>
       </form>
+      <div>
+        <p className="text-center">Are you a member? <span  className="underline underline-offset-1 cursor-pointer ms-2 text-primary text-md"
+                onClick={() => navigate("/signin")}>Sign In</span></p>
+      </div>
     </div>
     </div>
     </div>
