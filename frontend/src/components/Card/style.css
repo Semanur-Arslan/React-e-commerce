@@ -1,10 +1,13 @@
 .product-image {
     position: relative;
     overflow: hidden;
+    height: 200px;
   }
   
   .main-image {
     transition: transform 0.3s ease;
+    height: 100%;
+    width: 100%;
   }
   
   .card:hover .main-image {

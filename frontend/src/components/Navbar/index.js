@@ -57,40 +57,40 @@ function Navbar() {
       </div>
       <div ref={menuRef} className={`md:flex md:justify-center order-4 md:order-2 my-toggle md:transition-none transform transition-transform ease-in-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'}  md:translate-x-2  md:relative md:top-0 left-0  absolute top-9 z-10 bg-base-100 md:px-0 px-4 py-3 w-1/2 md:w-auto h-screen md:h-auto`}>
         <ul className="md:grid grid-cols-3 text-accent text-sm justify-center items-center ">
-        <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
-            <Link to="/"  onClick={() => setMenuOpen(false)}>Home</Link>
+          <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
+            <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
           </li>
           <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
-            <Link to="/product"  onClick={() => setMenuOpen(false)}>Products</Link>
+            <Link to="/product" onClick={() => setMenuOpen(false)}>Products</Link>
           </li>
           {/* <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
             <Link to="/product"  onClick={() => setMenuOpen(false)}>About</Link>
           </li> */}
           <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
-            <Link to="/product"  onClick={() => setMenuOpen(false)}>Contact Us</Link>
+            <Link to="/product" onClick={() => setMenuOpen(false)}>Contact Us</Link>
           </li>
         </ul>
       </div>
       <div className="flex justify-end order-3 ">
         {loggedIn && loggedIn ? (
           <>
-                      {user?.role == 'admin' && (
-               <div className="my-hover-div flex items-center mx-4">
-               <Link to="/admin">
-                 <div
-                   tabIndex={0}
-                   role="button"
-                   className="flex items-center my-hover"
-                 >
-                   <span className="pl-1 md:text-base text-xs hidden md:block">
-                     {" "}
-                     Admin
-                   </span>
-                 </div>
-               </Link>
-             </div>
+            {user?.role == 'admin' && (
+              <div className="my-hover-div flex items-center">
+                <Link to="/admin/home">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="flex items-center my-hover me-2"
+                  >
+                    <span className="pl-1 md:text-base text-xs">
+                      {" "}
+                      Admin
+                    </span>
+                  </div>
+                </Link>
+              </div>
             )}
-            <div className="my-hover-div flex items-center ">
+            <div className="my-hover-div flex items-center">
               <Link to="/profile">
                 <div
                   tabIndex={0}
@@ -98,7 +98,7 @@ function Navbar() {
                   className="flex items-center my-hover"
                 >
                   <FaUser className="pl-1 " />
-                  <span className="pl-1 md:text-base text-xs hidden md:block">
+                  <span className="pl-1 md:text-base text-xs ">
                     {" "}
                     Profile
                   </span>
@@ -107,20 +107,21 @@ function Navbar() {
             </div>
 
 
-
-            <div className="ml-4 my-basket">
-              {basketItemCount > 0 && (
-                <Link
-                  to="/basket"
-                  className="flex items-center my-basket-piece"
-                >
-                  <BsFillBasket2Fill className="mr-1 " />
-                  <span className="mb-2  md:text-sm text-xs   ">
-                    ({basketItemCount})
-                  </span>
-                </Link>
-              )}
-            </div>
+            {user?.role == 'user' && (
+              <div className="ml-4 my-basket">
+                {basketItemCount > 0 && (
+                  <Link
+                    to="/basket"
+                    className="flex items-center my-basket-piece"
+                  >
+                    <BsFillBasket2Fill className="mr-1 " />
+                    <span className="mb-2  md:text-sm text-xs">
+                      ({basketItemCount})
+                    </span>
+                  </Link>
+                )}
+              </div>
+            )}
           </>
         ) : (
           <>

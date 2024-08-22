@@ -77,8 +77,16 @@ export const postOrder = async (input) => {
 
 
 export const fetchOrders = async() => {
-  const {data} = await axios.get(
+  const { data } = await axios.get(
     `${process.env.REACT_APP_BASE_URL}/order`,
   );
   return data
+}
+
+
+export const deleteProduct = async (product_id) => {
+  const { data } = await axios.delete(
+    `${process.env.REACT_APP_BASE_URL}/product/${product_id}`,
+  );
+  return data;
 }

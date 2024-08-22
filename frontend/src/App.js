@@ -16,26 +16,28 @@ import Admin from './pages/Admin';
 import HomeAdmin from './pages/Admin/HomeAdmin';
 import ProductsAdmin from './pages/Admin/ProductsAdmin';
 import OrdersAdmin from './pages/Admin/OrdersAdmin';
+import OrderDetailAdmin from './pages/Admin/OrderDetailAdmin';
 
 
 function App() {
   return (
     <Router>
-      <div>
+      <div className='min-h-screen flex flex-col'>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product" element={<Products />} />
-          <Route path="/:product_id" element={<ProductsDetail />} />
+          <Route path="/product/:product_id" element={<ProductsDetail />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route  element={<ProtectedRoute />}> 
           <Route element={<Profile/>} path="/profile"/>
           </Route>
           <Route path="/admin" element={<ProtectedRouteAdmin />}> 
-              <Route path="/admin" element={<HomeAdmin />} />
+              <Route path="home" index element={<HomeAdmin />} />
               <Route path="products" element={<ProductsAdmin />} />
               <Route path="orders" element={<OrdersAdmin />} />
+              <Route path="orders/:id" element={<OrderDetailAdmin />} />
           </Route>
           <Route path="/basket" element={<Basket />} />
           <Route path="*" element={<NoPage />} />

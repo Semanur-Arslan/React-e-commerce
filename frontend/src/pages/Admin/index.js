@@ -1,22 +1,41 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 
 function Admin() {
+
+  const location = useLocation();
   return (
-    <div className=" px-2 md:px-32 mt-4">
-      <ul className="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box ">
-        <li >
-          <Link to='/admin'  className="hover:bg-primary">Home</Link>
-        </li>
-        <li>
-          <Link to='/admin/products'  className="hover:bg-primary">Products</Link>
-        </li>
-        <li>
-          <Link to='/admin/orders'  className="hover:bg-primary">Orders</Link>
-        </li>
-      </ul>
-      <Outlet /> 
+    <div className="bg-info min-h-80">
+      <div className=" px-2 md:px-32 mt-4">
+        <ul className="menu menu-horizontal bg-base-200 rounded-box ">
+          <li >
+            <NavLink
+              to='/admin/home'
+              className={` ${location.pathname === '/admin/home' ? 'bg-primary' : ''}`}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='/admin/products'
+              className={` ${location.pathname === '/admin/products' ? 'bg-primary' : ''}`}
+            >
+              Products
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='/admin/orders'
+              className={` ${location.pathname === '/admin/orders' ? 'bg-primary' : ''}`}
+            >
+              Orders
+            </NavLink>
+          </li>
+        </ul>
+        <Outlet />
+      </div>
     </div>
   );
 }
