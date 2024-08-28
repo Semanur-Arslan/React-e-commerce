@@ -13,11 +13,11 @@ module.exports = {
         mytheme: {
           primary: "#56B280",
 
-          secondary: "#d6d3d1",
+          secondary: "#D9EDBF",
 
           accent: "#272727",
 
-          neutral: "#D9EDBF",
+          neutral: "#d6d3d1", 
 
           info: "#f3f4f6",
 
@@ -26,7 +26,6 @@ module.exports = {
           warning: "#F9E897",
 
           error: "#dc2626",
-
 
           extend: {
             colors: {

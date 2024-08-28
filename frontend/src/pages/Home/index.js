@@ -241,7 +241,7 @@ function Home() {
       </div> */}
 
 
-      <div className="px-12 lg:px-24 py-12 bg-neutral">
+      <div className="px-12 lg:px-24 py-12 bg-secondary">
         <h2 className="text-3xl font-medium mb-4 text-accent text-center mt-5">
           Testimonials
         </h2>

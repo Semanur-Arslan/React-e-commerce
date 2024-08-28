@@ -20,7 +20,7 @@ function OrdersAdmin() {
             <tr>
               <th>User</th>
               <th>Address</th>
-              <th>Items</th>
+              <th>Product Quantity</th>
             </tr>
           </thead>
           <tbody>
@@ -30,7 +30,7 @@ function OrdersAdmin() {
                 <td>{item.adress}</td>
                 <td>{item.items.length}</td>
                 <td>
-                  <Link to={`${item._id}`}  ><button class="btn btn-outline btn-success btn-xs">Detail</button></Link>
+                  <Link to={`${item._id}`}><button class="btn btn-outline btn-success btn-xs">Detail</button></Link>
                 </td>
               </tr>
             ))}
