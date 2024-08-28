@@ -4,6 +4,7 @@ import { fetchProductList, deleteProduct } from "../../../Api";
 import { formatDate } from "../../../utils/dateFormetter";
 import LoadButton from "../../../components/LoadButton";
 import Modal from '../../../components/Modal/index';
+import { Link } from "react-router-dom";
 
 function ProductsAdmin() {
 
@@ -62,6 +63,10 @@ function ProductsAdmin() {
     }
   };
 
+  const handleEditClick = (id) => {
+
+  }
+
   return (
     <div className="mb-8">
       <div className="container overflow-x-auto p-4">
@@ -101,7 +106,7 @@ function ProductsAdmin() {
                       <td>{formatDate(item.createdAt)}</td>
                       <td>
                         <div className="flex flex-nowrap flex-center">
-                          <button className="btn btn-outline btn-success btn-xs me-2 ">Edit</button>
+                          <Link to={`${item._id}`}> <button className="btn btn-outline btn-success btn-xs me-2">Edit</button> </Link>
                           <button className="btn btn-outline btn-error btn-xs" onClick={() => handleDeleteClick(item)}>Delete</button>
                         </div>
                       </td>

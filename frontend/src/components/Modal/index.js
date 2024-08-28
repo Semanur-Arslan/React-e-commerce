@@ -28,7 +28,7 @@ function LoadButton({ isOpen, title, text, onClose, onConfirm }) {
                     <button className="btn btn-outline btn-success btn-sm mx-2" onClick={onConfirm}>
                         Confirm
                     </button>
-                    <button className="btn btn-outline btn-neutral hover:btn-neutral hover:btn-accent btn-sm mx-2" onClick={onClose}>
+                    <button className="btn btn-outline hover:btn-accent btn-sm mx-2" onClick={onClose}>
                         Cancel
                     </button>
                 </div>
