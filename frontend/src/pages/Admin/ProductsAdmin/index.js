@@ -63,12 +63,12 @@ function ProductsAdmin() {
     }
   };
 
-  const handleEditClick = (id) => {
-
-  }
 
   return (
     <div className="mb-8">
+      <div className="flex justify-end">
+        <Link to={`new`}> <button className="btn btn-success btn-sm text-white">New Product</button> </Link>
+      </div>
       <div className="container overflow-x-auto p-4">
         <table className="table">
           <thead>

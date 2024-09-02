@@ -18,6 +18,7 @@ import ProductsAdmin from './pages/Admin/ProductsAdmin';
 import OrdersAdmin from './pages/Admin/OrdersAdmin';
 import OrderDetailAdmin from './pages/Admin/OrderDetailAdmin';
 import ProductDetailAdmin from './pages/Admin/ProductDetailAdmin';
+import NewProduct from './pages/Admin/ProductsAdmin/newProduct';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
               <Route path="home" index element={<HomeAdmin />} />
               <Route path="products" element={<ProductsAdmin />} />
               <Route path="products/:product_id" element={<ProductDetailAdmin />} />
+              <Route path="products/new" element={<NewProduct />} />
               <Route path="orders" element={<OrdersAdmin />} />
               <Route path="orders/:id" element={<OrderDetailAdmin />} />
           </Route>
