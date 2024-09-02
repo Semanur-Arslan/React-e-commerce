@@ -1,48 +1,41 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useQuery, useMutation } from '@tanstack/react-query';
-import { fetchProductDetail, updateProduct } from '../../../Api';
+import { postProduct } from '../../../Api'
+import { useInfiniteQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Formik, FieldArray, Field } from 'formik';
-import validationSchema from './validations'
+import validationSchema from './validation'
 
-export default function ProductDetailAdmin() {
+export default function NewProduct() {
 
-    const { product_id } = useParams();
-    const { isLoading, isError, data, error } = useQuery({
-        queryKey: ["productDataAdmin", product_id],
-        queryFn: () => fetchProductDetail(product_id),
-    });
+    const queryClient = useQueryClient();
 
-    const updateProductMutation = useMutation({
-        mutationFn: (values) => updateProduct(values, product_id),
+    const newProductMutation = useMutation({
+        mutationFn: (product) => postProduct(product),
         onSuccess: () => {
-            console.log("Product updated successfully");
+        queryClient.invalidateQueries('productsAdmin');
         }
-    });
-
-    if (isLoading) {
-        return <div>Loading...</div>
-    }
-
-    if (isError) {
-        return <div>Error {error.message}</div>
-    }
+      });
 
     const handleSubmit = async (values, bag) => {
         try {
-            await updateProductMutation.mutateAsync(values);
+            const updatedValues = {
+                ...values,
+                photos: JSON.stringify(values.photos) ,
+                price: values.price.toString()
+            };
+
+            newProductMutation.mutate(updatedValues);
         } catch (e) {
-            e.message.error('The product does not updated')
+            console.error('The product does not updated:', e.message);
         }
     }
 
     return (
         <Formik
             initialValues={{
-                title: data.title,
-                description: data.description,
-                price: data.price,
-                photos: data.photos
+                title: '',
+                description: '',
+                price: '',
+                photos: []
             }}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
@@ -51,13 +44,13 @@ export default function ProductDetailAdmin() {
             {
                 ({ handleSubmit, errors, touched, handleChange, handleBlur, values, isSubmitting }) => (
                     <>
-                                               {updateProductMutation.isSuccess && (
-                            <div className="toast toast-top toast-center z-10">
-                                <div className="alert alert-success">
-                                    <span>The product successfully updated</span>
-                                </div>
+                                           {newProductMutation.isSuccess && (
+                        <div className="toast toast-top toast-center z-10">
+                            <div className="alert alert-success">
+                                <span>The product successfully updated</span>
                             </div>
-                        )}
+                        </div>
+                    )}
 
                         <div className='flex justify-center'>
                             <form className='grid gap-4 w-full max-w-md m-4' onSubmit={handleSubmit}>
@@ -144,9 +137,9 @@ export default function ProductDetailAdmin() {
                                         {isSubmitting ? (
                                             <>
                                                 <span className="loading loading-spinner loading-xs"></span>
-                                                Updating...
+                                                Saving...
                                             </>
-                                        ) : 'Update'}
+                                        ) : 'Save'}
                                     </button>
 
                                 </div>
