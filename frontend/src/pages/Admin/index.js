@@ -9,14 +9,14 @@ function Admin() {
     <div className="bg-info min-h-80">
       <div className=" px-2 md:px-32 mt-4">
         <ul className="menu menu-horizontal bg-base-200 rounded-box ">
-          <li >
+          {/* <li >
             <NavLink
               to='/admin/home'
               className={` ${location.pathname === '/admin/home' ? 'bg-primary' : ''}`}
             >
               Home
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to='/admin/products'

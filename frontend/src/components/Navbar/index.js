@@ -76,7 +76,7 @@ function Navbar() {
           <>
             {user?.role == 'admin' && (
               <div className="my-hover-div flex items-center">
-                <Link to="/admin/home">
+                <Link to="/admin/products">
                   <div
                     tabIndex={0}
                     role="button"

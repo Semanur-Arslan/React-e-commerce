@@ -149,7 +149,7 @@ function Basket() {
             </ul>
           </div>
 
-          <div className="flex items-center justify-end  mt-4">
+          <div className="flex items-center justify-end  my-8">
             <h2 className="font-semibold mr-4">Total = $ {totalBasketPrice}</h2>
             <button
               className="btn btn-primary btn-sm text-white"
@@ -159,7 +159,7 @@ function Basket() {
             </button>
           </div>
           {showModal && (
-            <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div className="fixed inset-0 flex items-center justify-center z-50 ">
               <div
                 className="modal-overlay absolute inset-0 bg-black opacity-50"
                 onClick={() => setShowModal(false)}
@@ -218,7 +218,7 @@ function Basket() {
           )}
 
           {loginRequired && (
-            <div role="alert" className="alert alert-warning mt-5">
+            <div role="alert" className="alert alert-warning my-8">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="stroke-current shrink-0 h-6 w-6"

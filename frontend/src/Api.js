@@ -10,7 +10,6 @@ axios.interceptors.request.use(
     if (allowedOrigins.includes(origin)) {
       config.headers.authorization = token;
     }
-
     return config;
   },
   function (error) {
