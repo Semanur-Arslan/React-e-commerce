@@ -50,7 +50,8 @@ export const fetchLogin = async (input) => {
 };
 
 export const fetchMe = async () => {
-  const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/auth/me`);
+  const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/auth/me`,
+  );
   return data;
 };
 

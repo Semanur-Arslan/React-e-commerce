@@ -18,7 +18,7 @@ function Profile() {
     
         <div className="avatar online ">
           <div className="w-24 rounded-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
           </div>
         </div>
      
@@ -27,7 +27,7 @@ function Profile() {
       
 
         <button
-          class="btn btn-secondary  rounded-lg text-slate-50 "
+          className="btn btn-neutral rounded-lg "
           onClick={handleLogout}
         >
           Logout

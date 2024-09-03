@@ -12,12 +12,8 @@ import people3 from "../../images/people-3.png";
 import star1 from "../../images/star-1.svg";
 import star2 from "../../images/star-2.svg";
 import star3 from "../../images/star-3.svg";
-
 import { fetchProductList } from "../../Api";
 import Card from "../../components/Card";
-
-
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -46,8 +42,8 @@ function Home() {
       setTimeout(() => {
         currentSlide.classList.remove("slide-out");
         currentSlide.classList.add("hidden");
-      }, 1000); // Animasyon süresi
-    }, 5000); // Otomatik geçiş süresi
+      }, 1000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -180,7 +176,7 @@ function Home() {
             </li>
           </ul>
 
-          <Link to={"/about"}>
+          <Link to={"/"}>
             <button className="btn btn-primary btn-sm">Learn more</button>
           </Link>
         </div>
@@ -188,59 +184,6 @@ function Home() {
           <img src={infoImg} alt="info-img" />
         </div>
       </div>
-
-
-      {/* <div className="px-12 lg:px-24 py-12 bg-neutral ">
-        <h2 className="text-3xl font-medium mb-4 text-accent text-center mt-5">
-          Testimonials
-        </h2>
-        <p className="text-md  mb-4 text-accent text-center">
-          Some quotes from our happy customers
-        </p>
-
-        <div className="grid  md:grid-cols-3 gap-12 mt-12 flex flex-col items-center text-center">
-          <div className="card bg-white shadow-sm rounded flex flex-col items-center">
-            <div className="w-24 mt-6">
-          <img src={people1} alt="people" />
-          </div>
-            <div className="card-body flex flex-col items-center">
-            <div className="w-32">
-          <img src={star1} alt="star" />
-          </div>
-              <h2 className="font-medium">“I love it! No more air fresheners”</h2>
-              <p className="text-secondary">Luisa</p>
-              
-            </div>
-          </div>
-          <div className="card  bg-white shadow-sm rounded flex flex-col items-center ">
-          <div className="w-24 mt-6">
-          <img src={people3} alt="people" />
-          </div>
-            <div className="card-body flex flex-col items-center">
-            <div className="w-32">
-          <img src={star3} alt="star" />
-          </div>
-          <h2 className="font-medium">“Looks very natural, the smell is awesome”</h2>
-              <p className="text-secondary">Mart</p>
-            </div>
-          </div>
-          <div className="card  bg-white shadow-sm rounded flex flex-col items-center">
-          <div className="w-24 mt-6">
-          <img src={people2} alt="people" />
-          </div>
-            <div className="card-body flex flex-col items-center">
-            <div className="w-32">
-          <img src={star2} alt="star" />
-          </div>
-          <h2 className="font-medium">“Raccomended for everyone”</h2>
-              <p className="text-secondary">Edoardo</p>
-            </div>
-          </div>
-
-        </div>
-      </div> */}
-
-
       <div className="px-12 lg:px-24 py-12 bg-secondary">
         <h2 className="text-3xl font-medium mb-4 text-accent text-center mt-5">
           Testimonials

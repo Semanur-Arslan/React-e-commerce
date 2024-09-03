@@ -26,7 +26,7 @@ function Card(props) {
   };
 
   return (
-    <div className="card card-compact shadow-md rounded">
+    <div className="card card-compact shadow-md rounded border  border-white hover:border-gray-300">
       <Link to={`/product/${item._id}`}>
         <figure className="product-image rounded-t">
           <img
@@ -39,12 +39,12 @@ function Card(props) {
       </Link>
       <div className="card-body">
         <Link to={`/product/${item._id}`}>
-          <h2 className="card-title text-sm">{item.title}</h2>
+          <h2 className="card-title text-sm line-clamp-1" title={item.title}>{item.title}</h2>
         </Link>
 
         <div className="grid grid-cols-2  content-center flex items-center">
           <p className="py-4 text-md">{item.price} $</p>
-          {user?.role !== 'admin' && (
+          {user?.role !== 'admin' ? (
             quantity === 0 ? (
               <button className="btn btn-outline btn-primary btn-sm hover:text-white " onClick={handleAddToBasket}>
                 Add to cart
@@ -55,7 +55,11 @@ function Card(props) {
                 <span className="text-center text-base">{quantity}</span>
                 <button onClick={handleIncreaseQuantity}>+</button>
               </div>
-            ))}
+            )) : (
+
+            <Link to={`/admin/products/${item._id}`}> <button className="btn btn-outline btn-success btn-sm float-end">Edit</button> </Link>
+
+          )}
         </div>
 
       </div>
