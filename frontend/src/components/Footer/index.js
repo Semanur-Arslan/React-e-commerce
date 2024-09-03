@@ -26,11 +26,11 @@ function Footer() {
                   <Link to={"/product"}>Product</Link>
                 </li>
                 <li className="py-2 hover:text-primary">
-                  <Link to={"/about"}>About</Link>
+                  <Link to={"/"}>About</Link>
                 </li>
 
                 <li className="py-2 hover:text-primary">
-                  <Link to={"/contact-us"}>Contact Us</Link>
+                  <Link to={"/"}>Contact Us</Link>
                 </li>
 
               </ul>

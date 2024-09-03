@@ -11,16 +11,23 @@ const AuthProvider = ({children}) => {
 
    useEffect(() => {
     (async () => {
-        try{
-            const me = await fetchMe();
-            setLoggedIn(true);
-            setUser(me);
-            setLoading(false)
-        }catch (e) {
-            setLoading(false)
+      try {
+        const token = localStorage.getItem('access-token');
+        if (token) {
+          const me = await fetchMe();
+          setUser(me);
+          setLoggedIn(true);
+        } else {
+          setLoggedIn(false);
         }
+      } catch (e) {
+        console.error('Failed to fetch user details:', e);
+        setLoggedIn(false);
+      } finally {
+        setLoading(false);
+      }
     })();
-   }, [])
+  }, []);
 
    const login = (data) => {
     setLoggedIn(true);

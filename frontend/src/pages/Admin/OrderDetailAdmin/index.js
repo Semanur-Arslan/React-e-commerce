@@ -33,7 +33,7 @@ function OrderDetailAdmin() {
             User Detail
           </h2>
     
-          <div class="grid md:grid-cols-3 gap-4 pt-2 border-t border-secondary">
+          <div className="grid md:grid-cols-3 gap-4 pt-2 border-t border-secondary">
                 <div className="flex">
                   <h3 className="me-4 font-semibold">E-mail : </h3>
                   <p > {order.user.email}</p>

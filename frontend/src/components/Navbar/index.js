@@ -109,7 +109,6 @@ function Navbar() {
 
             {user?.role == 'user' && (
               <div className="ml-4 my-basket">
-                {basketItemCount > 0 && (
                   <Link
                     to="/basket"
                     className="flex items-center my-basket-piece"
@@ -119,7 +118,6 @@ function Navbar() {
                       ({basketItemCount})
                     </span>
                   </Link>
-                )}
               </div>
             )}
           </>
@@ -156,7 +154,6 @@ function Navbar() {
                 </div>
               </div>
               <div className="ml-4 my-basket">
-                {basketItemCount > 0 && (
                   <Link
                     to="/basket"
                     className="flex items-center my-basket-piece"
@@ -166,7 +163,6 @@ function Navbar() {
                       ({basketItemCount})
                     </span>
                   </Link>
-                )}
               </div>
             </div>
           </>

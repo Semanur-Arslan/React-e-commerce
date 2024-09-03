@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { useInfiniteQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchProductList, deleteProduct } from "../../../Api";
 import { formatDate } from "../../../utils/dateFormetter";
@@ -127,15 +127,13 @@ function ProductsAdmin() {
         hasNextPage={hasNextPage}
         isFetching={isFetching}
       />
-      {isOpen == true &&
-        <Modal
-          isOpen={isOpen}
-          onClose={handleModalClose}
-          title="Delete Product"
-          text={`Are you sure you want to delete the product "${selectedProduct?.title}"?`}
-          onConfirm={handleDeleteConfirm}
-        />
-      }
+      <Modal
+        isOpen={isOpen}
+        onClose={handleModalClose}
+        title="Delete Product"
+        text={`Are you sure you want to delete the product "${selectedProduct?.title}"?`}
+        onConfirm={handleDeleteConfirm}
+      />
     </div>
   );
 }

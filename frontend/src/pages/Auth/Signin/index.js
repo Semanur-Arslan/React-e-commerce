@@ -45,7 +45,7 @@ function Signin() {
 
 
 
-      <form class="bg-white shadow-md rounded px-8 pt-8 pb-8 mb-4" onSubmit={formik.handleSubmit}>
+      <form className="bg-white shadow-md rounded px-8 pt-8 pb-8 mb-4" onSubmit={formik.handleSubmit}>
       {formik.errors.general && (
         <div role="alert" className="alert alert-error mb-5 rounded-md text-slate-50">
           <svg
