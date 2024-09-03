@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { postProduct } from '../../../Api'
 import { useInfiniteQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Formik, FieldArray, Field } from 'formik';
-import validationSchema from './validation'
+import validationSchema from './validation';
+import { useNavigate } from 'react-router-dom';
 
 export default function NewProduct() {
 
     const queryClient = useQueryClient();
+    const navigate = useNavigate();
 
     const newProductMutation = useMutation({
         mutationFn: (product) => postProduct(product),
@@ -24,6 +26,9 @@ export default function NewProduct() {
             };
 
             newProductMutation.mutate(updatedValues);
+            setTimeout(() => {
+                navigate('/admin/products');
+            }, 2000);
         } catch (e) {
             console.error('The product does not updated:', e.message);
         }

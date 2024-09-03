@@ -3,10 +3,12 @@ import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { fetchProductDetail, updateProduct } from '../../../Api';
 import { Formik, FieldArray, Field } from 'formik';
-import validationSchema from './validations'
+import validationSchema from './validations';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductDetailAdmin() {
 
+    const navigate = useNavigate();
     const { product_id } = useParams();
     const { isLoading, isError, data, error } = useQuery({
         queryKey: ["productDataAdmin", product_id],
@@ -17,6 +19,9 @@ export default function ProductDetailAdmin() {
         mutationFn: (values) => updateProduct(values, product_id),
         onSuccess: () => {
             console.log("Product updated successfully");
+            setTimeout(() => {
+                navigate('/admin/products');
+            }, 2000);
         }
     });
 

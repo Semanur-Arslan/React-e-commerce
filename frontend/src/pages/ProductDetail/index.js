@@ -9,7 +9,6 @@ import DetailCard from "../../components/DetailCard";
 function ProductDetail() {
   const { product_id } = useParams();
 
-
   const { isPending, error, data } = useQuery({
     queryKey: ["productData", product_id],
     queryFn: () => fetchProductDetail(product_id),

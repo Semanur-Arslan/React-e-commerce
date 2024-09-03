@@ -36,7 +36,7 @@ function App() {
           <Route element={<Profile/>} path="/profile"/>
           </Route>
           <Route path="/admin" element={<ProtectedRouteAdmin />}> 
-              <Route path="home" index element={<HomeAdmin />} />
+              {/* <Route path="home" index element={<HomeAdmin />} /> */}
               <Route path="products" element={<ProductsAdmin />} />
               <Route path="products/:product_id" element={<ProductDetailAdmin />} />
               <Route path="products/new" element={<NewProduct />} />
