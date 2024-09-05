@@ -1,20 +1,17 @@
  nav {
-  border-bottom: 1px solid var(--light-gray);
-} 
+   border-bottom: 1px solid var(--light-gray);
+ }
 
-.my-hover-div:hover .my-hover svg,
-.my-hover-div:focus .my-hover svg,
-.my-hover-div:hover .my-hover span,
-.my-hover-div:focus .my-hover span {
-  color: #56B280; 
-}
+ .my-hover-div:hover .my-hover svg,
+ .my-hover-div:focus .my-hover svg,
+ .my-hover-div:hover .my-hover span,
+ .my-hover-div:focus .my-hover span {
+   color: #56B280;
+ }
 
-.my-basket:hover .my-basket-piece svg,
-.my-basket:focus .my-basket-piece svg,
-.my-basket:hover .my-basket-piece span,
-.my-basket:focus .my-basket-piece span {
-  color: #56B280; 
-}
-
-
-
+ .my-basket:hover .my-basket-piece svg,
+ .my-basket:focus .my-basket-piece svg,
+ .my-basket:hover .my-basket-piece span,
+ .my-basket:focus .my-basket-piece span {
+   color: #56B280;
+ }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import Admin from './index';
 import { useAuth } from '../../contexts/AuthContext';
 

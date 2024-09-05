@@ -10,7 +10,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Modal from '../../components/Modal/index';
 import { deleteProduct } from "../../Api";
 
-
 function DetailCard(props) {
   const { detailData } = props;
   const { addToBasket, removeFromBasket, basketItems } = useBasket();
@@ -37,7 +36,6 @@ function DetailCard(props) {
   const handleDecreaseQuantity = () => {
     removeFromBasket(detailData);
   };
-
 
   const handlePrevImage = () => {
     const currentIndex = detailData.photos.indexOf(selectedImage);
@@ -156,7 +154,7 @@ function DetailCard(props) {
               )
             ) : (
               <div className="flex flex-nowrap flex-center">
-                <Link to={`${detailData._id}`}> <button className="btn btn-outline btn-success btn-xs me-2">Edit Product</button> </Link>
+                <Link to={`/admin/products/${detailData._id}`}> <button className="btn btn-outline btn-success btn-xs me-2">Edit Product</button> </Link>
                 <div>
                   <button className="btn btn-outline btn-error btn-xs " onClick={() => handleDeleteClick(detailData)}>Delete Product</button>
                 </div>
@@ -164,15 +162,14 @@ function DetailCard(props) {
             )}
           </div>
         </div>
-        <p className={hideShow == false ? 'mt-4 line-clamp-6' : 'mt-4'}>{detailData.description}</p>
+        <p className={hideShow === false ? 'mt-4 line-clamp-6' : 'mt-4'}>{detailData.description}</p>
         <div className="flex justify-end">
           <button className="btn btn-link" onClick={() => setHideShow(!hideShow)}>
-            {hideShow == true ? (
+            {hideShow === true ? (
               'Hide'
             ) : ('See more')}
           </button>
         </div>
-
       </div>
       <ImageModal
         isOpen={isModalOpen}
@@ -189,8 +186,6 @@ function DetailCard(props) {
         text={`Are you sure you want to delete the product "${selectedProduct?.title}"?`}
         onConfirm={handleDeleteConfirm}
       />
-
-
     </div>
   );
 }

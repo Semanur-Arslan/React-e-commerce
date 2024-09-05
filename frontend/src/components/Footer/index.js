@@ -1,4 +1,3 @@
-import React from "react";
 import "../Footer/style.css";
 import logoFooter from "../../images/logo-footer.svg";
 import { Link } from "react-router-dom";
@@ -28,20 +27,16 @@ function Footer() {
                 <li className="py-2 hover:text-primary">
                   <Link to={"/"}>About</Link>
                 </li>
-
                 <li className="py-2 hover:text-primary">
                   <Link to={"/"}>Contact Us</Link>
                 </li>
-
               </ul>
             </div>
             <div>
               <ul className="text-white  text-md my-4">
-
                 <li className="py-2 hover:text-primary">
                   <Link to={"/"}>Privacy Policies</Link>
                 </li>
-
                 <li className="py-2 hover:text-primary">
                   <Link to={"/"}>Terms & Conditions</Link>
                 </li>

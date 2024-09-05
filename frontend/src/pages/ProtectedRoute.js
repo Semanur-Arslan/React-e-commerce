@@ -5,8 +5,6 @@ import Profile from './Profile';
 
 function ProtectedRoute() {
   const { loggedIn, user } = useAuth();
-
-
   return (
     loggedIn ? <Profile /> : <Navigate to="/signin" replace />
   )

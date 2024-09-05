@@ -12,14 +12,11 @@ import NoPage from './pages/NoPage';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import ProtectedRouteAdmin from './pages/Admin/ProtectedRouteAdmin';
-import Admin from './pages/Admin';
-import HomeAdmin from './pages/Admin/HomeAdmin';
 import ProductsAdmin from './pages/Admin/ProductsAdmin';
 import OrdersAdmin from './pages/Admin/OrdersAdmin';
 import OrderDetailAdmin from './pages/Admin/OrderDetailAdmin';
 import ProductDetailAdmin from './pages/Admin/ProductDetailAdmin';
 import NewProduct from './pages/Admin/ProductsAdmin/newProduct';
-
 
 function App() {
   return (

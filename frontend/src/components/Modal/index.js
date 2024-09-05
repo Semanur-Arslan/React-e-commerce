@@ -1,9 +1,8 @@
 
+function Modal({ isOpen, title, text, onClose, onConfirm }) {
 
-function LoadButton({ isOpen, title, text, onClose, onConfirm }) {
     return (
-
-        <div id="modal" className={isOpen == true ? 'modal modal-open' : 'modal'} >
+        <div id="modal" className={isOpen === true ? 'modal modal-open' : 'modal'} >
             <div className="modal-box">
                 <h3 className="text-lg font-bold">
                     <svg
@@ -38,4 +37,4 @@ function LoadButton({ isOpen, title, text, onClose, onConfirm }) {
     )
 }
 
-export default LoadButton;
+export default Modal;

@@ -28,12 +28,9 @@ function Products() {
     }
   });
 
-
-
   if (status === "loading") return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
-
 
   return (
     <>

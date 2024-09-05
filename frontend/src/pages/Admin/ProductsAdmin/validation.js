@@ -3,14 +3,14 @@ import * as yup from 'yup';
 const newProductSchema = yup.object().shape({
     title: yup
     .string()
-    .required('Zorunlu alan'),
+    .required(),
     description:yup
     .string()
-    .required('Zorunlu alan')
+    .required()
     .min(5),
     price:yup
     .string()
-    .required('Zotunlu alan')
+    .required()
 })
 
 export default newProductSchema;
