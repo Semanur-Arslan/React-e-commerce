@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "../Navbar/style.css";
 import "../Card/style.css";
 import { Link } from "react-router-dom";
@@ -41,7 +40,6 @@ function Card(props) {
         <Link to={`/product/${item._id}`}>
           <h2 className="card-title text-sm line-clamp-1" title={item.title}>{item.title}</h2>
         </Link>
-
         <div className="grid grid-cols-2  content-center flex items-center">
           <p className="py-4 text-md">{item.price} $</p>
           {user?.role !== 'admin' ? (
@@ -61,7 +59,6 @@ function Card(props) {
 
           )}
         </div>
-
       </div>
     </div>
   );

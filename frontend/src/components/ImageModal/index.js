@@ -1,12 +1,10 @@
-import React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import '../ImageModal/style.css'
 import { IoCloseOutline } from "react-icons/io5";
 
-
 function ImageModal({ isOpen, closeModal, modalImage, handlePrevImage, handleNextImage }) {
     return (
-        <div id="ımageModal" className={isOpen == true ? 'modal modal-open' : 'modal'}>
+        <div id="ımageModal" className={isOpen === true ? 'modal modal-open' : 'modal'}>
             <div className="fixed top-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
                 <button
                     className="absolute top-10 right-10 text-white "

@@ -63,9 +63,6 @@ function Navbar() {
           <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
             <Link to="/product" onClick={() => setMenuOpen(false)}>Products</Link>
           </li>
-          {/* <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
-            <Link to="/product"  onClick={() => setMenuOpen(false)}>About</Link>
-          </li> */}
           <li className="md:flex justify-center px-1 md:px-4 md:p-0 py-1 border-solid border-b border-primary md:border-none">
             <Link to="/product" onClick={() => setMenuOpen(false)}>Contact Us</Link>
           </li>
@@ -74,7 +71,7 @@ function Navbar() {
       <div className="flex justify-end order-3 ">
         {loggedIn && loggedIn ? (
           <>
-            {user?.role == 'admin' && (
+            {user?.role === 'admin' && (
               <div className="my-hover-div flex items-center">
                 <Link to="/admin/products">
                   <div
@@ -105,19 +102,17 @@ function Navbar() {
                 </div>
               </Link>
             </div>
-
-
-            {user?.role == 'user' && (
+            {user?.role === 'user' && (
               <div className="ml-4 my-basket">
-                  <Link
-                    to="/basket"
-                    className="flex items-center my-basket-piece"
-                  >
-                    <BsFillBasket2Fill className="mr-1 " />
-                    <span className="mb-2  md:text-sm text-xs">
-                      ({basketItemCount})
-                    </span>
-                  </Link>
+                <Link
+                  to="/basket"
+                  className="flex items-center my-basket-piece"
+                >
+                  <BsFillBasket2Fill className="mr-1 " />
+                  <span className="mb-2  md:text-sm text-xs">
+                    ({basketItemCount})
+                  </span>
+                </Link>
               </div>
             )}
           </>
@@ -154,15 +149,15 @@ function Navbar() {
                 </div>
               </div>
               <div className="ml-4 my-basket">
-                  <Link
-                    to="/basket"
-                    className="flex items-center my-basket-piece"
-                  >
-                    <BsFillBasket2Fill className="mr-1 " />
-                    <span className="mb-2 md:text-sm text-xs  ">
-                      ({basketItemCount})
-                    </span>
-                  </Link>
+                <Link
+                  to="/basket"
+                  className="flex items-center my-basket-piece"
+                >
+                  <BsFillBasket2Fill className="mr-1 " />
+                  <span className="mb-2 md:text-sm text-xs  ">
+                    ({basketItemCount})
+                  </span>
+                </Link>
               </div>
             </div>
           </>

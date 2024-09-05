@@ -1,15 +1,14 @@
-import {useState, createContext, useEffect, useContext } from "react";
+import { useState, createContext, useEffect, useContext } from "react";
 import { fetchLogout, fetchMe } from "../Api";
-
 
 const AuthContext = createContext();
 
-const AuthProvider = ({children}) => {
-   const [user, setUser] = useState(null);
-   const [loggedIn, setLoggedIn] = useState(false);
-   const [loading, setLoading] = useState(true)
+const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true)
 
-   useEffect(() => {
+  useEffect(() => {
     (async () => {
       try {
         const token = localStorage.getItem('access-token');
@@ -29,16 +28,15 @@ const AuthProvider = ({children}) => {
     })();
   }, []);
 
-   const login = (data) => {
+  const login = (data) => {
     setLoggedIn(true);
     setUser(data.user);
 
     localStorage.setItem('access-token', data.accessToken)
     localStorage.setItem('refresh-token', data.refreshToken)
-    
-   };
+  };
 
-   const logout = async() => {
+  const logout = async () => {
     setLoggedIn(false);
     setUser(null);
 
@@ -46,26 +44,25 @@ const AuthProvider = ({children}) => {
 
     localStorage.removeItem("access-token")
     localStorage.removeItem("refresh-token")
+  }
 
-   }
-
-   const values = {
+  const values = {
     loggedIn,
     user,
     login,
     logout,
-   };
+  };
 
-   if(loading) {
+  if (loading) {
     return (
-        <div>loading...</div>
+      <div>loading...</div>
     )
-   }
+  }
 
-   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
 
 }
 
 const useAuth = () => useContext(AuthContext);
 
-export {AuthProvider, useAuth}
+export { AuthProvider, useAuth }

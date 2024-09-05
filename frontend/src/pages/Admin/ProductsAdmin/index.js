@@ -33,7 +33,6 @@ function ProductsAdmin() {
     }
   });
 
-
   const deleteMutation = useMutation({
     mutationFn: (productId) => deleteProduct(productId),
     onSuccess: () => {
@@ -41,7 +40,6 @@ function ProductsAdmin() {
       queryClient.invalidateQueries('productsAdmin');
     }
   });
-
 
   if (status === "loading") return "Loading...";
 
@@ -62,7 +60,6 @@ function ProductsAdmin() {
       deleteMutation.mutate(selectedProduct._id);
     }
   };
-
 
   return (
     <div className="mb-8">
@@ -117,10 +114,8 @@ function ProductsAdmin() {
             ))
             }
           </tbody>
-
         </table>
       </div>
-
       <LoadButton
         fetchFunction={fetchNextPage}
         isFetchingNextPage={isFetchingNextPage}

@@ -4,16 +4,15 @@ import { Link } from "react-router-dom";
 import { postOrder } from "../../Api";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useToast } from '../../contexts/ToastContext';
 
 function Basket() {
   const navigate = useNavigate();
-  const { basketItems, addToBasket, removeFromBasket, emptyBasket } =
-    useBasket();
+  const { basketItems, addToBasket, removeFromBasket, emptyBasket } = useBasket();
+  const { showToast } = useToast();
   const [address, setAddress] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [loginRequired, setLoginRequired] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const basketItemsArray = Object.keys(basketItems).map((itemId) => ({
     id: itemId,
@@ -44,7 +43,7 @@ function Basket() {
     try {
       await postOrder(input);
       emptyBasket();
-      setOrderConfirmed(true);
+      showToast('success', 'Your purchase has been confirmed!');
       setShowModal(false);
       setLoginRequired(false);
     } catch (error) {
@@ -52,10 +51,9 @@ function Basket() {
         setShowModal(false);
         setLoginRequired(true);
       } else if (error.response && error.response.status === 400) {
-        setErrorMessage(error.response.data.message);
-        setTimeout(() => setErrorMessage(""), 5000);
+        showToast('error', error.response?.data?.message || 'An error occurred');
       } else {
-        console.error("An error occurred:", error);
+        showToast('error', error || 'An error occurred');
       }
     }
   };
@@ -70,25 +68,6 @@ function Basket() {
           Back to shopping
         </p>
       </Link>
-
-      {orderConfirmed && (
-        <div role="alert" className="alert alert-success">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="stroke-current shrink-0 h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <span>Your purchase has been confirmed!</span>
-        </div>
-      )}
       {basketItemsArray.length < 1 ? (
         <p className="text-center mt-8">There are no items in your cart</p>
       ) : (
@@ -185,25 +164,6 @@ function Basket() {
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                   ></textarea>
-
-                  {errorMessage && (
-                    <div role="alert" className="alert alert-error">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="stroke-current shrink-0 h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      <span>{errorMessage}</span>
-                    </div>
-                  )}
                   <div className="flex items-center justify-end mt-4">
                     <button
                       className="btn btn-primary btn-sm text-white"

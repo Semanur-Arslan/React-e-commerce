@@ -15,9 +15,9 @@ const BasketProvider = ({ children }) => {
         setBasketItems((prev) => {
             const updatedItems = { ...prev };
             if (updatedItems[data._id]) {
-                updatedItems[data._id].quantity += 1; 
+                updatedItems[data._id].quantity += 1;
             } else {
-                updatedItems[data._id] = { ...data, quantity: 1 }; 
+                updatedItems[data._id] = { ...data, quantity: 1 };
             }
             return updatedItems;
         });
@@ -29,7 +29,7 @@ const BasketProvider = ({ children }) => {
             if (updatedItems[data._id] && updatedItems[data._id].quantity > 1) {
                 updatedItems[data._id].quantity -= 1;
             } else {
-                delete updatedItems[data._id]; 
+                delete updatedItems[data._id];
             }
             return updatedItems;
         });

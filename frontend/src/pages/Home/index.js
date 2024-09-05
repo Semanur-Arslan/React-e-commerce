@@ -63,7 +63,6 @@ function Home() {
     slidesToScroll: 1
   };
 
-
   return (
     <>
       <div

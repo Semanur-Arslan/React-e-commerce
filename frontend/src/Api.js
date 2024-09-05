@@ -56,14 +56,14 @@ export const fetchMe = async () => {
 };
 
 
-export const fetchLogout = async() => {
-   const {data} = await axios.post(
+export const fetchLogout = async () => {
+  const { data } = await axios.post(
     `${process.env.REACT_APP_BASE_URL}/auth/logout`,
     {
-        refresh_token: localStorage.getItem("refresh-token")
+      refresh_token: localStorage.getItem("refresh-token")
     }
-   );
-   return data;
+  );
+  return data;
 }
 
 
@@ -76,7 +76,7 @@ export const postOrder = async (input) => {
 };
 
 
-export const fetchOrders = async() => {
+export const fetchOrders = async () => {
   const { data } = await axios.get(
     `${process.env.REACT_APP_BASE_URL}/order`,
   );
