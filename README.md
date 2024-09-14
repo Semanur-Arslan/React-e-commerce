@@ -37,15 +37,19 @@ The project uses both **React Context API** and **TanStack React Query** for sta
 To run this project locally, follow these steps:
 
 1. **Clone the Repository**
+ ```bash
     git clone https://github.com/Semanur-Arslan/React-e-commerce.git
     cd frontend
-
+ ```
 2. **Install Dependencies**
+  ```bash
     npm install
+  ```
 
 3. **Start the Development Server**
+ ```bash
     npm start
-
+ ```
 4. **Backend Setup**
    The backend is powered by a Node.js infrastructure provided by Patika.dev. For detailed backend setup instructions, refer to the related documentation.
 
