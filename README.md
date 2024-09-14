@@ -4,8 +4,6 @@ This project is a e-commerce platform developed using **Node.js**, provided by *
 
 ![React-e-commerce](web.gif)
 
-![React-e-commerce](mobil.gif)
-
 ## Features
 
 ### User Functions
@@ -17,6 +15,8 @@ This project is a e-commerce platform developed using **Node.js**, provided by *
 ### Admin Panel
 - Adding, deleting, and editing products
 - Viewing customer orders
+
+![React-e-commerce](mobil.gif)
 
 ## Technologies
 
