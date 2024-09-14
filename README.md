@@ -2,6 +2,10 @@
 
 This project is a e-commerce platform developed using **Node.js**, provided by **Patika.dev** as the backend, and built with React.js and Tailwind CSS to offer a modern user interface. The platform allows users to create accounts, log in, browse products, add items to their cart, and complete orders. Admin users, on the other hand, can manage products and view orders through the admin panel.
 
+![React-e-commerce](web.gif)
+
+![React-e-commerce](mobil.gif)
+
 ## Features
 
 ### User Functions
