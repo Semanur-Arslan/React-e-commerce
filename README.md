@@ -25,7 +25,7 @@ The project utilizes the following modern web technologies:
 - **HTTP Requests**: Axios
 - **Form Handling**: Formik & Yup
 - **Icons**: React Icons
-- **Slider**: React Slick & Slick Carousel
+
 
 ### State Management
 The project uses both **React Context API** and **TanStack React Query** for state management:
