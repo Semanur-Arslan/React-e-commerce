@@ -20,7 +20,7 @@ The project utilizes the following modern web technologies:
 
 - **Backend**: Node.js (Provided by Patika.dev)
 - **Frontend**: React.js
-- **UI Framework**: Tailwind CSS
+- **Styling**: Tailwind CSS
 - **State Management**: Context API & TanStack React Query
 - **HTTP Requests**: Axios
 - **Form Handling**: Formik & Yup
